@@ -57,8 +57,8 @@ namespace CodeGenerator
             { "ImPlotTransform", "IntPtr" },
             { "ImGuiKeyChord", "ImGuiKey" },
             { "ImGuiSelectionUserData", "long" },
-            { "ID3D11Device", "IntPtr" },
-            { "ID3D11DeviceContext", "IntPtr" },
+            { "ID3D11Device*", "IntPtr" },
+            { "ID3D11DeviceContext*", "IntPtr" },
         };
 
         public static readonly List<string> WellKnownEnums = new List<string>()

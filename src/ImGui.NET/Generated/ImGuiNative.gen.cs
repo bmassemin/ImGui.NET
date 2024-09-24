@@ -1101,7 +1101,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte ImGui_ImplDX11_CreateDeviceObjects();
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte ImGui_ImplDX11_Init(IntPtr* device, IntPtr* device_context);
+        public static extern byte ImGui_ImplDX11_Init(IntPtr device, IntPtr device_context);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ImGui_ImplDX11_InvalidateDeviceObjects();
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]

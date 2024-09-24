@@ -235,9 +235,6 @@ namespace CodeGenerator
                                 continue;
                             }
 
-                            if (fd.Name == "ImGui_ImplDX11_Init")
-                                Debugger.Break();
-
                             if (overload.IsConstructor)
                             {
                                 // TODO: Emit a static function on the type that invokes the native constructor.
@@ -738,7 +735,7 @@ namespace CodeGenerator
                     preCallLines.Add($"{tr.Type} {nativeArgName} = {correctedIdentifier}.NativePtr;");
                 }
                 else if ((tr.Type.EndsWith("*") || tr.Type.Contains("[") || tr.Type.EndsWith("&")) && tr.Type != "void*" && tr.Type != "ImGuiContext*" &&
-                         tr.Type != "ImPlotContext*" && tr.Type != "EditorContext*")
+                         tr.Type != "ImPlotContext*" && tr.Type != "EditorContext*" && tr.Type != "ID3D11Device*" && tr.Type != "ID3D11DeviceContext*")
                 {
                     string nonPtrType;
                     if (tr.Type.Contains("["))

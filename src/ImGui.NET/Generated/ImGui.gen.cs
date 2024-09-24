@@ -28639,16 +28639,10 @@ namespace ImGuiNET
             byte ret = ImGuiNative.ImGui_ImplDX11_CreateDeviceObjects();
             return ret != 0;
         }
-        public static bool ImGui_ImplDX11_Init(ref IntPtr device, ref IntPtr device_context)
+        public static bool ImGui_ImplDX11_Init(IntPtr device, IntPtr device_context)
         {
-            fixed (IntPtr* native_device = &device)
-            {
-                fixed (IntPtr* native_device_context = &device_context)
-                {
-                    byte ret = ImGuiNative.ImGui_ImplDX11_Init(native_device, native_device_context);
-                    return ret != 0;
-                }
-            }
+            byte ret = ImGuiNative.ImGui_ImplDX11_Init(device, device_context);
+            return ret != 0;
         }
         public static void ImGui_ImplDX11_InvalidateDeviceObjects()
         {
