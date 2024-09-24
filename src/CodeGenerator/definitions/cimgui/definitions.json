@@ -25032,7 +25032,7 @@
   ],
   "igImQsort": [
     {
-      "args": "(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))",
+      "args": "(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*))",
       "argsT": [
         {
           "name": "base",
@@ -25047,13 +25047,14 @@
           "type": "size_t"
         },
         {
+          "has_cdecl": "__cdecl",
           "name": "compare_func",
           "ret": "int",
           "signature": "(void const*,void const*)",
-          "type": "int(*)(void const*,void const*)"
+          "type": "int(__cdecl*)(void const*,void const*)"
         }
       ],
-      "argsoriginal": "(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))",
+      "argsoriginal": "(void* base,size_t count,size_t size_of_element,int(__cdecl* compare_func)(void const*,void const*))",
       "call_args": "(base,count,size_of_element,compare_func)",
       "cimguiname": "igImQsort",
       "defaults": {},
@@ -25061,7 +25062,7 @@
       "location": "imgui_internal:375",
       "ov_cimguiname": "igImQsort",
       "ret": "void",
-      "signature": "(void*,size_t,size_t,int(*)(void const*,void const*))",
+      "signature": "(void*,size_t,size_t,int(__cdecl*)(void const*,void const*))",
       "stname": ""
     }
   ],
@@ -25113,7 +25114,7 @@
       "cimguiname": "igImRsqrt",
       "defaults": {},
       "funcname": "ImRsqrt",
-      "location": "imgui_internal:476",
+      "location": "imgui_internal:474",
       "ov_cimguiname": "igImRsqrt_Float",
       "ret": "float",
       "signature": "(float)",
@@ -29886,7 +29887,7 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       "call_args": "(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       "cimguiname": "igPlotHistogram",
       "defaults": {
@@ -29947,7 +29948,7 @@
           "type": "ImVec2"
         }
       ],
-      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0))",
       "call_args": "(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       "cimguiname": "igPlotHistogram",
       "defaults": {
@@ -30007,7 +30008,7 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       "call_args": "(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       "cimguiname": "igPlotLines",
       "defaults": {
@@ -30068,7 +30069,7 @@
           "type": "ImVec2"
         }
       ],
-      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0))",
       "call_args": "(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       "cimguiname": "igPlotLines",
       "defaults": {
@@ -30288,7 +30289,7 @@
           "type": "const char*"
         }
       ],
-      "argsoriginal": "(float fraction,const ImVec2& size_arg=ImVec2(-1.17549435082228750796873653722224568e-38F,0),const char* overlay=((void*)0))",
+      "argsoriginal": "(float fraction,const ImVec2& size_arg=ImVec2(-1.175494351e-38F,0),const char* overlay=((void*)0))",
       "call_args": "(fraction,size_arg,overlay)",
       "cimguiname": "igProgressBar",
       "defaults": {
@@ -39187,6 +39188,269 @@
       "ov_cimguiname": "igWindowRectRelToAbs",
       "ret": "void",
       "signature": "(ImGuiWindow*,const ImRect)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplDX11_CreateDeviceObjects": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplDX11_CreateDeviceObjects",
+      "defaults": {},
+      "funcname": "ImGui_ImplDX11_CreateDeviceObjects",
+      "location": "imgui_impl_dx11:32",
+      "ov_cimguiname": "ImGui_ImplDX11_CreateDeviceObjects",
+      "ret": "bool",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplDX11_Init": [
+    {
+      "args": "(ID3D11Device* device,ID3D11DeviceContext* device_context)",
+      "argsT": [
+        {
+          "name": "device",
+          "type": "ID3D11Device*"
+        },
+        {
+          "name": "device_context",
+          "type": "ID3D11DeviceContext*"
+        }
+      ],
+      "argsoriginal": "(ID3D11Device* device,ID3D11DeviceContext* device_context)",
+      "call_args": "(device,device_context)",
+      "cimguiname": "ImGui_ImplDX11_Init",
+      "defaults": {},
+      "funcname": "ImGui_ImplDX11_Init",
+      "location": "imgui_impl_dx11:25",
+      "ov_cimguiname": "ImGui_ImplDX11_Init",
+      "ret": "bool",
+      "signature": "(ID3D11Device*,ID3D11DeviceContext*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplDX11_InvalidateDeviceObjects": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplDX11_InvalidateDeviceObjects",
+      "defaults": {},
+      "funcname": "ImGui_ImplDX11_InvalidateDeviceObjects",
+      "location": "imgui_impl_dx11:31",
+      "ov_cimguiname": "ImGui_ImplDX11_InvalidateDeviceObjects",
+      "ret": "void",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplDX11_NewFrame": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplDX11_NewFrame",
+      "defaults": {},
+      "funcname": "ImGui_ImplDX11_NewFrame",
+      "location": "imgui_impl_dx11:27",
+      "ov_cimguiname": "ImGui_ImplDX11_NewFrame",
+      "ret": "void",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplDX11_RenderDrawData": [
+    {
+      "args": "(ImDrawData* draw_data)",
+      "argsT": [
+        {
+          "name": "draw_data",
+          "type": "ImDrawData*"
+        }
+      ],
+      "argsoriginal": "(ImDrawData* draw_data)",
+      "call_args": "(draw_data)",
+      "cimguiname": "ImGui_ImplDX11_RenderDrawData",
+      "defaults": {},
+      "funcname": "ImGui_ImplDX11_RenderDrawData",
+      "location": "imgui_impl_dx11:28",
+      "ov_cimguiname": "ImGui_ImplDX11_RenderDrawData",
+      "ret": "void",
+      "signature": "(ImDrawData*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplDX11_Shutdown": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplDX11_Shutdown",
+      "defaults": {},
+      "funcname": "ImGui_ImplDX11_Shutdown",
+      "location": "imgui_impl_dx11:26",
+      "ov_cimguiname": "ImGui_ImplDX11_Shutdown",
+      "ret": "void",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_EnableAlphaCompositing": [
+    {
+      "args": "(void* hwnd)",
+      "argsT": [
+        {
+          "name": "hwnd",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* hwnd)",
+      "call_args": "(hwnd)",
+      "cimguiname": "ImGui_ImplWin32_EnableAlphaCompositing",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_EnableAlphaCompositing",
+      "location": "imgui_impl_win32:52",
+      "ov_cimguiname": "ImGui_ImplWin32_EnableAlphaCompositing",
+      "ret": "void",
+      "signature": "(void*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_EnableDpiAwareness": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplWin32_EnableDpiAwareness",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_EnableDpiAwareness",
+      "location": "imgui_impl_win32:45",
+      "ov_cimguiname": "ImGui_ImplWin32_EnableDpiAwareness",
+      "ret": "void",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_GetDpiScaleForHwnd": [
+    {
+      "args": "(void* hwnd)",
+      "argsT": [
+        {
+          "name": "hwnd",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* hwnd)",
+      "call_args": "(hwnd)",
+      "cimguiname": "ImGui_ImplWin32_GetDpiScaleForHwnd",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_GetDpiScaleForHwnd",
+      "location": "imgui_impl_win32:46",
+      "ov_cimguiname": "ImGui_ImplWin32_GetDpiScaleForHwnd",
+      "ret": "float",
+      "signature": "(void*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_GetDpiScaleForMonitor": [
+    {
+      "args": "(void* monitor)",
+      "argsT": [
+        {
+          "name": "monitor",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* monitor)",
+      "call_args": "(monitor)",
+      "cimguiname": "ImGui_ImplWin32_GetDpiScaleForMonitor",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_GetDpiScaleForMonitor",
+      "location": "imgui_impl_win32:47",
+      "ov_cimguiname": "ImGui_ImplWin32_GetDpiScaleForMonitor",
+      "ret": "float",
+      "signature": "(void*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_Init": [
+    {
+      "args": "(void* hwnd)",
+      "argsT": [
+        {
+          "name": "hwnd",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* hwnd)",
+      "call_args": "(hwnd)",
+      "cimguiname": "ImGui_ImplWin32_Init",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_Init",
+      "location": "imgui_impl_win32:25",
+      "ov_cimguiname": "ImGui_ImplWin32_Init",
+      "ret": "bool",
+      "signature": "(void*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_InitForOpenGL": [
+    {
+      "args": "(void* hwnd)",
+      "argsT": [
+        {
+          "name": "hwnd",
+          "type": "void*"
+        }
+      ],
+      "argsoriginal": "(void* hwnd)",
+      "call_args": "(hwnd)",
+      "cimguiname": "ImGui_ImplWin32_InitForOpenGL",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_InitForOpenGL",
+      "location": "imgui_impl_win32:26",
+      "ov_cimguiname": "ImGui_ImplWin32_InitForOpenGL",
+      "ret": "bool",
+      "signature": "(void*)",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_NewFrame": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplWin32_NewFrame",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_NewFrame",
+      "location": "imgui_impl_win32:28",
+      "ov_cimguiname": "ImGui_ImplWin32_NewFrame",
+      "ret": "void",
+      "signature": "()",
+      "stname": ""
+    }
+  ],
+  "ImGui_ImplWin32_Shutdown": [
+    {
+      "args": "()",
+      "argsT": [],
+      "argsoriginal": "()",
+      "call_args": "()",
+      "cimguiname": "ImGui_ImplWin32_Shutdown",
+      "defaults": {},
+      "funcname": "ImGui_ImplWin32_Shutdown",
+      "location": "imgui_impl_win32:27",
+      "ov_cimguiname": "ImGui_ImplWin32_Shutdown",
+      "ret": "void",
+      "signature": "()",
       "stname": ""
     }
   ]
