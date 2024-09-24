@@ -4,11 +4,9 @@ using System.Linq;
 using System.Numerics;
 using ImPlotNET;
 using System.Runtime.CompilerServices;
-using TestDotNetStandardLib;
 using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;
-
 using static ImGuiNET.ImGuiNative;
 
 namespace ImGuiNET
@@ -33,7 +31,10 @@ namespace ImGuiNET
         private static uint s_tab_bar_flags = (uint)ImGuiTabBarFlags.Reorderable;
         static bool[] s_opened = { true, true, true, true }; // Persistent user state
 
-        static void SetThing(out float i, float val) { i = val; }
+        static void SetThing(out float i, float val)
+        {
+            i = val;
+        }
 
         static void Main(string[] args)
         {
@@ -62,7 +63,11 @@ namespace ImGuiNET
                 deltaTime = stopwatch.ElapsedTicks / (float)Stopwatch.Frequency;
                 stopwatch.Restart();
                 InputSnapshot snapshot = _window.PumpEvents();
-                if (!_window.Exists) { break; }
+                if (!_window.Exists)
+                {
+                    break;
+                }
+
                 _controller.Update(deltaTime, snapshot); // Feed the input events to our ImGui controller, which passes them through to ImGui.
 
                 SubmitUI();
@@ -93,16 +98,16 @@ namespace ImGuiNET
             {
                 ImGui.Text("");
                 ImGui.Text(string.Empty);
-                ImGui.Text("Hello, world!");                                        // Display some text (you can use a format string too)
-                ImGui.SliderFloat("float", ref _f, 0, 1, _f.ToString("0.000"));  // Edit 1 float using a slider from 0.0f to 1.0f    
+                ImGui.Text("Hello, world!"); // Display some text (you can use a format string too)
+                ImGui.SliderFloat("float", ref _f, 0, 1, _f.ToString("0.000")); // Edit 1 float using a slider from 0.0f to 1.0f    
                 //ImGui.ColorEdit3("clear color", ref _clearColor);                   // Edit 3 floats representing a color
 
                 ImGui.Text($"Mouse position: {ImGui.GetMousePos()}");
 
-                ImGui.Checkbox("ImGui Demo Window", ref _showImGuiDemoWindow);                 // Edit bools storing our windows open/close state
+                ImGui.Checkbox("ImGui Demo Window", ref _showImGuiDemoWindow); // Edit bools storing our windows open/close state
                 ImGui.Checkbox("Another Window", ref _showAnotherWindow);
                 ImGui.Checkbox("Memory Editor", ref _showMemoryEditor);
-                if (ImGui.Button("Button"))                                         // Buttons return true when clicked (NB: most widgets return true when edited/activated)
+                if (ImGui.Button("Button")) // Buttons return true when clicked (NB: most widgets return true when edited/activated)
                     _counter++;
                 ImGui.SameLine(0, -1);
                 ImGui.Text($"counter = {_counter}");
@@ -131,7 +136,7 @@ namespace ImGuiNET
                 ImGui.SetNextWindowPos(new Vector2(650, 20), ImGuiCond.FirstUseEver);
                 ImGui.ShowDemoWindow(ref _showImGuiDemoWindow);
             }
-            
+
             if (ImGui.TreeNode("Tabs"))
             {
                 if (ImGui.TreeNode("Basic"))
@@ -144,18 +149,22 @@ namespace ImGuiNET
                             ImGui.Text("This is the Avocado tab!\nblah blah blah blah blah");
                             ImGui.EndTabItem();
                         }
+
                         if (ImGui.BeginTabItem("Broccoli"))
                         {
                             ImGui.Text("This is the Broccoli tab!\nblah blah blah blah blah");
                             ImGui.EndTabItem();
                         }
+
                         if (ImGui.BeginTabItem("Cucumber"))
                         {
                             ImGui.Text("This is the Cucumber tab!\nblah blah blah blah blah");
                             ImGui.EndTabItem();
                         }
+
                         ImGui.EndTabBar();
                     }
+
                     ImGui.Separator();
                     ImGui.TreePop();
                 }
@@ -178,7 +187,11 @@ namespace ImGuiNET
 
                     for (int n = 0; n < s_opened.Length; n++)
                     {
-                        if (n > 0) { ImGui.SameLine(); }
+                        if (n > 0)
+                        {
+                            ImGui.SameLine();
+                        }
+
                         ImGui.Checkbox(names[n], ref s_opened[n]);
                     }
 
@@ -193,11 +206,14 @@ namespace ImGuiNET
                                     ImGui.Text("I am an odd tab.");
                                 ImGui.EndTabItem();
                             }
+
                         ImGui.EndTabBar();
                     }
+
                     ImGui.Separator();
                     ImGui.TreePop();
                 }
+
                 ImGui.TreePop();
             }
 
@@ -209,21 +225,19 @@ namespace ImGuiNET
                 ImGui.Text("Memory editor currently supported.");
                 // _memoryEditor.Draw("Memory Editor", _memoryEditorData, _memoryEditorData.Length);
             }
-            
-            // ReadOnlySpan<char> and .NET Standard 2.0 tests
-            TestStringParameterOnDotNetStandard.Text(); // String overloads should always be available.
-            
+
             // On .NET Standard 2.1 or greater, you can use ReadOnlySpan<char> instead of string to prevent allocations.
             long allocBytesStringStart = GC.GetAllocatedBytesForCurrentThread();
             ImGui.Text($"Hello, world {Random.Shared.Next(100)}!");
             long allocBytesStringEnd = GC.GetAllocatedBytesForCurrentThread() - allocBytesStringStart;
             Console.WriteLine("GC (string): " + allocBytesStringEnd);
-                
+
             long allocBytesSpanStart = GC.GetAllocatedBytesForCurrentThread();
-            ImGui.Text($"Hello, world {Random.Shared.Next(100)}!".AsSpan()); // Note that this call will STILL allocate memory due to string interpolation, but you can prevent that from happening by using an InterpolatedStringHandler.
+            ImGui.Text($"Hello, world {Random.Shared.Next(100)}!"
+                .AsSpan()); // Note that this call will STILL allocate memory due to string interpolation, but you can prevent that from happening by using an InterpolatedStringHandler.
             long allocBytesSpanEnd = GC.GetAllocatedBytesForCurrentThread() - allocBytesSpanStart;
             Console.WriteLine("GC (span): " + allocBytesSpanEnd);
-            
+
             ImGui.Text("Empty span:");
             ImGui.SameLine();
             ImGui.GetWindowDrawList().AddText(ImGui.GetCursorScreenPos(), uint.MaxValue, ReadOnlySpan<char>.Empty);

@@ -3,7 +3,7 @@
     <Description>A .NET wrapper for the Dear ImGui library.</Description>
     <AssemblyVersion>1.91.0.1</AssemblyVersion>
     <Authors>Eric Mellino</Authors>
-    <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>portable</DebugType>
     <AssemblyName>ImGui.NET</AssemblyName>
@@ -29,24 +29,8 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\deps\cimgui\win-x86\cimgui.dll">
-      <PackagePath>runtimes/win-x86/native</PackagePath>
-      <Pack>true</Pack>
-    </Content>
     <Content Include="..\..\deps\cimgui\win-x64\cimgui.dll">
       <PackagePath>runtimes/win-x64/native</PackagePath>
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="..\..\deps\cimgui\win-arm64\cimgui.dll">
-      <PackagePath>runtimes/win-arm64/native</PackagePath>
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="..\..\deps\cimgui\linux-x64\cimgui.so">
-      <PackagePath>runtimes/linux-x64/native/libcimgui.so</PackagePath>
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="..\..\deps\cimgui\osx\cimgui.dylib">
-      <PackagePath>runtimes/osx/native/libcimgui.dylib</PackagePath>
       <Pack>true</Pack>
     </Content>
     <Content Include="build\net40\ImGui.NET.targets">
